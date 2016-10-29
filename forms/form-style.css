@@ -16,3 +16,26 @@ h1 {
 .clicked {
   border-color: red;
 }
+#einfo {
+  width: 800px;
+}
+
+#einfo div {
+    display: table;
+}
+#einfo div div {
+    display: inline;
+    line-height: 65px;
+}
+
+#tableInfo {
+  width: 100%;
+}
+#tableCats{
+  text-decoration: underline;
+  text-align: left;
+}
+/*.container input {
+    width: 100%;
+    clear: both;
+}*/
