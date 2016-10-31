@@ -1,5 +1,3 @@
-
-
 $(document).ready(function() {
     var tableRow = 0;
     var salaryArray = [];
@@ -17,19 +15,17 @@ $(document).ready(function() {
         values[element.name] = element.value;
       });
       $('#einfo').find('input[type=text]').val('');   // clear out inputs
-
       tableRow++;
       salaryArray[tableRow] = parseInt(values.eSalary); //add salary to array
       appendDom(values);
     });
 
-    //remove the table row containing the unique class of the clicked button
+     //remove the table row containing the unique class of the clicked button
     function removeFromDom() {
       var thisClass = $(this).attr("class");
       $('tr.' + thisClass).remove();
       //get index number of salary array from digits of class
       thisClass = thisClass.replace( /^\D+/g, ''); //remove all non-digits from classname
-      console.log(thisClass);
       var salIndex = parseInt(thisClass);
       //erase salary value of deleted employee from array
       salaryArray[salIndex] = 0;
@@ -41,7 +37,7 @@ $(document).ready(function() {
       //provide unique row class for each table row
       var $el = $('#tableInfo').children().last();
       $el.append(
-      '<tr class="row' + tableRow + '"><td>' + empInfo.eFirstName + '</td>' +
+      '<tr class="person row' + tableRow + '"><td>' + empInfo.eFirstName + '</td>' +
       '<td>' + empInfo.eLastName + '</td>' +
       '<td>' + empInfo.eId + '</td>' +
       '<td>' + empInfo.eJob + '</td>' +
@@ -51,7 +47,7 @@ $(document).ready(function() {
     }
 
     function writeMonthlySalary() {
-      //quirky mini function that adds up all the values in the array
+      //quirky mini function that sums the values in the array
       var salarySum = salaryArray.reduce(function(a, b) {
         return a + b;
       }, 0);

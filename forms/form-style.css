@@ -1,43 +1,25 @@
 h1 {
   color: teal;
 }
-
+body {
+  min-width: 700px;
+}
 #container {
   border: 1px solid blue;
   padding: 10px;
   margin: 30px;
-  min-width: 800px;
 }
-
-.person {
-  border: 2px solid black;
-  padding: 2px;
+form table {
+  width: 600px;
 }
-
-.clicked {
-  border-color: red;
+form table td {
+  text-align: right;
+  padding:10px;
 }
-#einfo {
-  width: 800px;
-}
-
-#einfo div {
-    display: table;
-}
-#einfo div div {
-    display: inline;
-    line-height: 65px;
-}
-
 #tableInfo {
   width: 100%;
-
 }
 #tableCats{
   text-decoration: underline;
   text-align: left;
 }
-/*.container input {
-    width: 100%;
-    clear: both;
-}*/
