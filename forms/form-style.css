@@ -6,6 +6,7 @@ h1 {
   border: 1px solid blue;
   padding: 10px;
   margin: 30px;
+  min-width: 800px;
 }
 
 .person {
@@ -30,6 +31,7 @@ h1 {
 
 #tableInfo {
   width: 100%;
+
 }
 #tableCats{
   text-decoration: underline;
