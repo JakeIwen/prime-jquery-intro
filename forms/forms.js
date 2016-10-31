@@ -3,6 +3,10 @@
 $(document).ready(function() {
     var array = [];
     var totalSalaries = 0;
+    var tableRow = 0;
+
+    $('#tableInfo').on('click', "#deleteEntry", removeFromDom);
+
     $('#einfo').on('submit', function(event) {
       event.preventDefault();
 
@@ -25,19 +29,28 @@ $(document).ready(function() {
       $('#einfo').find('input[type=text]').val('');
 
       // append to DOM
+      tableRow++;
       totalSalaries += parseInt(values.eSalary);
-      appendDom(values, totalSalaries);
+      appendDom(values, totalSalaries, tableRow);
       console.log(totalSalaries);
     });
 
-    function appendDom(empInfo, salaryTot) {
-      $('#tableInfo').append('<tr></tr>');
+    //remove th table row containing the unique class of the clicked button
+    function removeFromDom() {
+      var thisClass = $(this).attr("class");
+      $('tr.' + thisClass).remove();
+    }
+
+    function appendDom(empInfo, salaryTot, tableRow) {
+      //$('#tableInfo').append('<tr class="person"></tr>');
       var $el = $('#tableInfo').children().last();
-      $el.append('<td>' + empInfo.eFirstName + '</td>');
-      $el.append('<td>' + empInfo.eLastName + '</td>');
-      $el.append('<td>' + empInfo.eId + '</td>');
-      $el.append('<td>' + empInfo.eJob + '</td>');
-      $el.append('<td>' + empInfo.eSalary + '</td>');
+      $el.append(
+      '<tr class="row' + tableRow + '"><td>' + empInfo.eFirstName + '</td>' +
+      '<td>' + empInfo.eLastName + '</td>' +
+      '<td>' + empInfo.eId + '</td>' +
+      '<td>' + empInfo.eJob + '</td>' +
+      '<td>' + empInfo.eSalary + '</td>' +
+      '<td><button id="deleteEntry" class="row' + tableRow + '">Delete</button></td></tr>');
 
       $('#monthlySalary').remove();
       $('#salaryTitle').append('<span id="monthlySalary">' + ' $' + salaryTot/12 + '</span>');
